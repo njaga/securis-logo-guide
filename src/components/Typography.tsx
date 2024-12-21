@@ -100,8 +100,8 @@ const Typography = () => (
 
     <FontContainer>
       <Label>Police Secondaire</Label>
-      <FontExample weight="normal" style={{ fontFamily: 'Arial, sans-serif' }}>Arial</FontExample>
-      <Paragraph>Pour les communications générales et les documents, nous recommandons l'utilisation de la police Arial comme police secondaire.</Paragraph>
+      <FontExample weight="normal" style={{ fontFamily: 'Roboto, sans-serif' }}>Roboto</FontExample>
+      <Paragraph>Pour les communications générales et les documents, nous recommandons l'utilisation de la police Roboto comme police secondaire.</Paragraph>
     </FontContainer>
   </TypographySection>
 );

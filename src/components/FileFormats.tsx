@@ -110,10 +110,8 @@ const FileFormats = () => (
       approprié en fonction de votre utilisation.
     </Paragraph>
     <DownloadGrid>
-      <DownloadButton href="/path-to-png-file.png" download>PNG (pour le web)</DownloadButton>
-      <DownloadButton href="/path-to-svg-file.svg" download>SVG (vectoriel)</DownloadButton>
-      <DownloadButton href="/path-to-ai-file.ai" download>AI (Adobe Illustrator)</DownloadButton>
-      <DownloadButton href="/path-to-eps-file.eps" download>EPS (vectoriel)</DownloadButton>
+      <DownloadButton href="/assets/Logo securis.png" download>PNG (pour le web)</DownloadButton>
+      <DownloadButton href="/assets/Logo securis.svg" download>SVG (vectoriel)</DownloadButton>
     </DownloadGrid>
   </FormatsSection>
 );
