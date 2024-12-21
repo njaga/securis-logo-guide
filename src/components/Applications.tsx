@@ -12,6 +12,20 @@ const ApplicationsSection = styled.section`
   &:hover {
     transform: translateY(-5px);
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    padding: 30px;
+    margin-bottom: 40px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    padding: 20px;
+    margin-bottom: 30px;
+    
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
 `;
 
 const Title = styled.h2`
@@ -32,6 +46,17 @@ const Title = styled.h2`
     background: linear-gradient(90deg, ${props => props.theme.colors.primary}, #FF7E1F);
     border-radius: 2px;
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    font-size: 2em;
+    margin-bottom: 25px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+  }
 `;
 
 const CategoryContainer = styled.div`
@@ -45,6 +70,26 @@ const CategoryContainer = styled.div`
     transform: translateX(10px);
     background: rgba(250, 153, 55, 0.06);
   }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 14px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+
+    &:hover {
+      transform: translateX(5px);
+    }
+  }
 `;
 
 const Subtitle = styled.h3`
@@ -57,6 +102,17 @@ const Subtitle = styled.h3`
 
   &:before {
     content: '📌';
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    font-size: 1.2em;
+    margin-bottom: 12px;
+    gap: 8px;
   }
 `;
 
@@ -73,18 +129,55 @@ const ListItem = styled.li`
   display: flex;
   align-items: center;
   transition: all 0.3s ease;
+  font-size: 1.1em;
+  line-height: 1.4;
 
   &:before {
     content: '•';
     color: ${props => props.theme.colors.primary};
     font-size: 1.5em;
     margin-right: 10px;
+    flex-shrink: 0;
   }
 
   &:hover {
     background: white;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     transform: translateX(5px);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    font-size: 1.05em;
+    padding: 10px 16px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+
+    &:before {
+      font-size: 1.4em;
+      margin-right: 8px;
+    }
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    font-size: 1em;
+    padding: 8px 14px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    line-height: 1.3;
+
+    &:before {
+      font-size: 1.3em;
+      margin-right: 6px;
+    }
+
+    &:hover {
+      transform: translateX(3px);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+    }
   }
 `;
 

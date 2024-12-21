@@ -12,6 +12,20 @@ const ContactSection = styled.section`
   &:hover {
     transform: translateY(-5px);
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    padding: 30px;
+    margin-bottom: 40px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    padding: 20px;
+    margin-bottom: 30px;
+    
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
 `;
 
 const Title = styled.h2`
@@ -48,6 +62,23 @@ const Paragraph = styled.p`
     background: rgba(250, 153, 55, 0.06);
     transform: translateX(10px);
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    font-size: 1.05em;
+    padding: 12px 16px;
+    line-height: 1.7;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    font-size: 1em;
+    padding: 10px 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+
+    &:hover {
+      transform: translateX(5px);
+    }
+  }
 `;
 
 const ContactInfo = styled.div`
@@ -63,15 +94,36 @@ const ContactInfo = styled.div`
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(250, 153, 55, 0.15);
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    padding: 25px;
+    margin: 25px 0;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 12px;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(250, 153, 55, 0.12);
+    }
+  }
 `;
 
 const StyledLink = styled.a`
   color: ${props => props.theme.colors.primary};
   text-decoration: none;
   transition: color 0.3s ease;
+  word-break: break-all;
 
   &:hover {
     color: #FF7E1F;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    font-size: 0.95em;
   }
 `;
 
@@ -89,14 +141,36 @@ const ContactItem = styled.p<ContactItemProps>`
   align-items: center;
   gap: 10px;
   transition: all 0.3s ease;
+  font-size: 1.1em;
+  word-break: break-word;
+  flex-wrap: wrap;
 
   &:before {
     content: ${props => props.type === 'email' ? '"📧"' : '"📞"'};
+    flex-shrink: 0;
   }
 
   &:hover {
     transform: translateX(10px);
     background: white;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    padding: 10px 16px;
+    font-size: 1.05em;
+    gap: 8px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    padding: 8px 14px;
+    font-size: 0.95em;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    gap: 6px;
+
+    &:hover {
+      transform: translateX(5px);
+    }
   }
 `;
 

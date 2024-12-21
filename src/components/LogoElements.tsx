@@ -12,6 +12,20 @@ const ElementsSection = styled.section`
   &:hover {
     transform: translateY(-5px);
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    padding: 30px;
+    margin-bottom: 40px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    padding: 20px;
+    margin-bottom: 30px;
+    
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
 `;
 
 const Title = styled.h2`
@@ -32,6 +46,17 @@ const Title = styled.h2`
     background: linear-gradient(90deg, ${props => props.theme.colors.primary}, #FF7E1F);
     border-radius: 2px;
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    font-size: 2em;
+    margin-bottom: 25px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+  }
 `;
 
 const ElementContainer = styled.div`
@@ -45,6 +70,25 @@ const ElementContainer = styled.div`
     transform: translateX(10px);
     background: rgba(250, 153, 55, 0.06);
   }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+
+    &:hover {
+      transform: translateX(5px);
+    }
+  }
 `;
 
 const Subtitle = styled.h3`
@@ -57,6 +101,17 @@ const Subtitle = styled.h3`
 
   &:before {
     content: ${props => props.children?.toString().includes('2.1') ? '"🔍"' : '"💡"'};
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    font-size: 1.2em;
+    margin-bottom: 12px;
+    gap: 8px;
   }
 `;
 
@@ -76,11 +131,13 @@ const ListItem = styled.li`
   display: flex;
   align-items: center;
   gap: 12px;
+  font-size: 1.1em;
 
   &:before {
     content: '•';
     color: ${props => props.theme.colors.primary};
     font-size: 1.5em;
+    flex-shrink: 0;
   }
 
   &:hover {
@@ -90,6 +147,29 @@ const ListItem = styled.li`
 
   &:last-child {
     margin-bottom: 0;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    font-size: 1.05em;
+    gap: 10px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    gap: 8px;
+    border-radius: 8px;
+
+    &:hover {
+      transform: translateX(5px);
+    }
+
+    &:before {
+      font-size: 1.3em;
+    }
   }
 `;
 

@@ -1,49 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Section, Title, Grid } from './shared/styles';
 
-const VersionsSection = styled.section`
-  margin-bottom: 60px;
-  background: ${props => props.theme.colors.white};
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: translateY(-5px);
-  }
-`;
-
-const Title = styled.h2`
-  color: ${props => props.theme.colors.primary};
-  border-bottom: 2px solid ${props => props.theme.colors.primary};
-  padding-bottom: 15px;
-  margin-bottom: 30px;
-  font-size: 2.2em;
-  position: relative;
-
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(90deg, ${props => props.theme.colors.primary}, #FF7E1F);
-    border-radius: 2px;
-  }
-`;
-
-const LogoGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 40px;
-  margin: 20px auto;
+const LogoGrid = styled(Grid)`
   max-width: 1200px;
+  margin: 20px auto;
 `;
 
-const LogoBox = styled.div<{ bgColor: string }>`
-  background: ${props => props.bgColor};
+const LogoBox = styled.div<{ $bgColor: string }>`
+  background: ${props => props.$bgColor};
   padding: 40px;
   border-radius: 20px;
   display: flex;
@@ -67,6 +32,14 @@ const LogoBox = styled.div<{ bgColor: string }>`
   &:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  @media (max-width: 768px) {
+    padding: 30px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px;
   }
 `;
 
@@ -95,24 +68,24 @@ const Caption = styled.p`
 `;
 
 const LogoVersions = () => (
-  <VersionsSection id="versions">
+  <Section id="versions">
     <Title>5. Versions du logo</Title>
     <LogoGrid>
-      <LogoBox bgColor="#FA9937">
+      <LogoBox $bgColor="#FA9937">
         <LogoImage 
           src="/assets/Logo fond orange.png" 
           alt="Logo SECURIS sur fond orange" 
         />
         <Caption>Version principale sur fond orange</Caption>
       </LogoBox>
-      <LogoBox bgColor="#4F4F4F">
+      <LogoBox $bgColor="#4F4F4F">
         <LogoImage 
           src="/assets/Logo fond gris.png" 
           alt="Logo SECURIS sur fond gris" 
         />
         <Caption>Version sur fond gris foncé</Caption>
       </LogoBox>
-      <LogoBox bgColor="#FFFFFF">
+      <LogoBox $bgColor="#FFFFFF">
         <LogoImage 
           src="/assets/Logo fond blanc.png" 
           alt="Logo SECURIS sur fond blanc" 
@@ -120,7 +93,7 @@ const LogoVersions = () => (
         <Caption style={{ color: '#4F4F4F' }}>Version sur fond blanc</Caption>
       </LogoBox>
     </LogoGrid>
-  </VersionsSection>
+  </Section>
 );
 
 export default LogoVersions;

@@ -12,6 +12,20 @@ const ColorSection = styled.section`
   &:hover {
     transform: translateY(-5px);
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    padding: 30px;
+    margin-bottom: 40px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    padding: 20px;
+    margin-bottom: 30px;
+    
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
 `;
 
 const Title = styled.h2`
@@ -32,6 +46,17 @@ const Title = styled.h2`
     background: linear-gradient(90deg, ${props => props.theme.colors.primary}, #FF7E1F);
     border-radius: 2px;
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    font-size: 2em;
+    margin-bottom: 25px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+  }
 `;
 
 const ColorGrid = styled.div`
@@ -39,11 +64,23 @@ const ColorGrid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 30px;
   padding: 20px 0;
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 15px 0;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 10px 0;
+  }
 `;
 
-const ColorBox = styled.div<{ bgColor: string; textColor: string }>`
-  background-color: ${props => props.bgColor};
-  color: ${props => props.textColor};
+const ColorBox = styled.div<{ $bgColor: string; $textColor: string }>`
+  background: ${props => props.$bgColor};
+  color: ${props => props.$textColor};
   padding: 35px;
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -65,6 +102,21 @@ const ColorBox = styled.div<{ bgColor: string; textColor: string }>`
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    padding: 25px;
+    border-radius: 15px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    padding: 20px;
+    border-radius: 12px;
+
+    &:hover {
+      transform: translateY(-5px) scale(1.01);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    }
+  }
 `;
 
 const ColorName = styled.h3`
@@ -72,6 +124,16 @@ const ColorName = styled.h3`
   font-size: 1.4em;
   font-weight: 600;
   position: relative;
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    font-size: 1.3em;
+    margin-bottom: 12px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
 `;
 
 const ColorInfo = styled.p`
@@ -89,31 +151,48 @@ const ColorInfo = styled.p`
     opacity: 1;
     transform: translateX(5px);
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    font-size: 1.05em;
+    padding: 6px 10px;
+    margin: 6px 0;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    font-size: 1em;
+    padding: 5px 8px;
+    margin: 5px 0;
+    border-radius: 6px;
+
+    &:hover {
+      transform: translateX(3px);
+    }
+  }
 `;
 
 const ColorPalette = () => (
   <ColorSection id="colors">
     <Title>3. Palette de couleurs</Title>
     <ColorGrid>
-      <ColorBox bgColor="#FA9937" textColor="white">
+      <ColorBox $bgColor="#FA9937" $textColor="white">
         <ColorName>Orange SECURIS</ColorName>
         <ColorInfo>#FA9937</ColorInfo>
         <ColorInfo>RGB: 250, 153, 55</ColorInfo>
         <ColorInfo>CMYK: 0, 45, 85, 0</ColorInfo>
       </ColorBox>
-      <ColorBox bgColor="#4F4F4F" textColor="white">
+      <ColorBox $bgColor="#4F4F4F" $textColor="white">
         <ColorName>Gris foncé SECURIS</ColorName>
         <ColorInfo>#4F4F4F</ColorInfo>
         <ColorInfo>RGB: 79, 79, 79</ColorInfo>
         <ColorInfo>CMYK: 0, 0, 0, 80</ColorInfo>
       </ColorBox>
-      <ColorBox bgColor="#6B6D74" textColor="white">
+      <ColorBox $bgColor="#6B6D74" $textColor="white">
         <ColorName>Gris clair SECURIS</ColorName>
         <ColorInfo>#6B6D74</ColorInfo>
         <ColorInfo>RGB: 107, 109, 116</ColorInfo>
         <ColorInfo>CMYK: 8, 5, 0, 55</ColorInfo>
       </ColorBox>
-      <ColorBox bgColor="#FFFFFF" textColor="black">
+      <ColorBox $bgColor="#FFFFFF" $textColor="black">
         <ColorName>Blanc</ColorName>
         <ColorInfo>#FFFFFF</ColorInfo>
         <ColorInfo>RGB: 255, 255, 255</ColorInfo>

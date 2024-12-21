@@ -2,8 +2,14 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 const fadeIn = keyframes`
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { 
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
 `;
 
 const HeaderWrapper = styled.header`
@@ -15,6 +21,30 @@ const HeaderWrapper = styled.header`
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(250, 153, 55, 0.2);
   animation: ${fadeIn} 1.2s ease-out;
+  position: relative;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+    pointer-events: none;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    padding: 70px 20px;
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    padding: 50px 15px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+  }
 `;
 
 const Title = styled.h1`
@@ -23,21 +53,37 @@ const Title = styled.h1`
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 700;
+  position: relative;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    font-size: 2.8em;
+    letter-spacing: 1.5px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    font-size: 2em;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
 `;
 
 const Subtitle = styled.p`
   font-size: 1.2em;
   opacity: 0.8;
-`;
-
-const HeaderLogo = styled.img`
-  width: 100px;
-  height: auto;
-  margin-bottom: 30px;
-  transition: transform 0.3s ease;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
   
   &:hover {
-    transform: scale(1.1);
+    opacity: 1;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    font-size: 1.1em;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    font-size: 1em;
   }
 `;
 

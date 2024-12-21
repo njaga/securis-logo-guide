@@ -12,6 +12,20 @@ const FormatsSection = styled.section`
   &:hover {
     transform: translateY(-5px);
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    padding: 30px;
+    margin-bottom: 40px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    padding: 20px;
+    margin-bottom: 30px;
+    
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
 `;
 
 const Title = styled.h2`
@@ -49,6 +63,18 @@ const DownloadGrid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 25px;
   padding: 20px 0;
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 15px 0;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 10px 0;
+  }
 `;
 
 const DownloadButton = styled.a`
@@ -97,6 +123,22 @@ const DownloadButton = styled.a`
 
     &:after {
       left: 100%;
+    }
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    padding: 15px 25px;
+    font-size: 1.05em;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    padding: 12px 20px;
+    font-size: 1em;
+    border-radius: 12px;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(250, 153, 55, 0.2);
     }
   }
 `;

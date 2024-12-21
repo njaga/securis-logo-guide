@@ -12,6 +12,16 @@ const TOCWrapper = styled.nav`
   &:hover {
     transform: translateY(-5px);
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    padding: 30px;
+    margin-bottom: 40px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    padding: 20px;
+    margin-bottom: 30px;
+  }
 `;
 
 const Title = styled.h2`
@@ -32,22 +42,44 @@ const Title = styled.h2`
     background: linear-gradient(90deg, ${props => props.theme.colors.primary}, #FF7E1F);
     border-radius: 2px;
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    font-size: 2em;
+    margin-bottom: 25px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+  }
 `;
 
 const TOCList = styled.ul`
   list-style-type: none;
   columns: 2;
   column-gap: 40px;
-  margin-top: 20px;
+  margin: 0;
+  padding: 0;
   
   @media (max-width: ${props => props.theme.breakpoints.tablet}) {
     columns: 1;
+    column-gap: 0;
   }
 `;
 
 const TOCItem = styled.li`
   margin-bottom: 15px;
   break-inside: avoid;
+  page-break-inside: avoid;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    margin-bottom: 10px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 const TOCLink = styled.a`
@@ -59,11 +91,42 @@ const TOCLink = styled.a`
   border-radius: 10px;
   background: rgba(250, 153, 55, 0.03);
   font-size: 1.1em;
+  position: relative;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: ${props => props.theme.colors.primary};
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
 
   &:hover {
     color: ${props => props.theme.colors.primary};
     background: rgba(250, 153, 55, 0.08);
     transform: translateX(10px);
+    
+    &:before {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    font-size: 1em;
+    padding: 10px 16px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    padding: 8px 14px;
+    
+    &:hover {
+      transform: translateX(5px);
+    }
   }
 `;
 
